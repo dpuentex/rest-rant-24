@@ -1,18 +1,21 @@
-const React = require('react')
+const React = require('react');
 
-function Def (html) {
+const Default = (html) => {
     return (
         <html>
             <head>
                 <title>Title</title>
-                /* BOOTSTRAP CDN LINK (long) */
-                <link rel="stylesheet" href="/css/style.css"/>
+             
+                <link rel='stylesheet' href='/css/style.css'/>
+                <script
+                    src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js'
+                    integrity='sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+'
+                    crossOrigin='anonymous'
+                ></script>
             </head>
-            <body>
-                {html.children}
-            </body>
+            <body>{html.children}</body>
         </html>
-    )
-}
+    );
+};
 
-module.exports = Def
+module.exports = Default;

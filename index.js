@@ -2,13 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
-app.set("views", __dirname + "/views");
+
+
+app.set("views, ");
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("Home");
 });
 
 //Loads the places controller
@@ -22,4 +24,26 @@ app.get("*", (req, res) => {
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running at http://localhost${process.env.PORT}`);
+});
+
+// GET /places
+app.get("/", (req, res) => {
+  let places = [
+    {
+      name: "H-Thai-ML",
+      city: "Seattle",
+      state: "WA",
+      cuisines: "Thai, Pan-Asian",
+      pic: "http://placekitten.com/250/250",
+    },
+    {
+      name: "Coding Cat Cafe",
+      city: "Phoenix",
+      state: "AZ",
+      cuisines: "Coffee, Bakery",
+      pic: "http://placekitten.com/250/250",
+    },
+  ];
+
+  res.render("places/index", { places });
 });
