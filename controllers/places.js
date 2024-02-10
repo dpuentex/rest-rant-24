@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/new", (req, res) => {
+  res.render("places/new");
+});
+
 router.get("/", (req, res) => {
   let places = [
     {
@@ -8,7 +12,7 @@ router.get("/", (req, res) => {
       city: "Seattle",
       state: "WA",
       cuisines: "Thai, Pan-Asian",
-      pic: "assets/kitty-cat-kitten-pet-45201.jpeg",
+      pic: "http://placekitten.com/250/250",
     },
     {
       name: "Coding Cat Cafe",
